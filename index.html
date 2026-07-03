@@ -27,12 +27,13 @@ html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 body{font-family:var(--font-body);background:var(--c-bg);color:var(--c-ink);font-size:16px;line-height:1.95;letter-spacing:.02em;line-break:strict;overflow-wrap:anywhere;text-wrap:pretty;padding-block-end:60px}
 @media(min-width:768px){body{padding-block-end:0}}
 img{max-width:100%;height:auto;display:block}a{color:inherit}
-h1,h2,h3{font-family:var(--font-display);font-weight:600;line-height:1.5;letter-spacing:.02em;font-feature-settings:"palt";text-wrap:balance}
+h1,h2,h3{font-family:var(--font-display);font-weight:600;line-height:1.45;letter-spacing:.02em;font-feature-settings:"palt";text-wrap:balance;overflow-wrap:normal;word-break:normal}
 h2{font-size:clamp(22px,4.4vw,31px);margin-block-end:var(--sp-3)}h3{font-size:clamp(16px,3vw,19px);margin-block-end:var(--sp-1)}
 .ph{display:inline-block}p{max-width:var(--w-text)}
 .container{max-width:var(--w-content);margin-inline:auto;padding-inline:20px}
 section{padding-block:var(--sp-8)}@media(min-width:768px){section{padding-block:var(--sp-12)}}
-.eyebrow{color:var(--c-accent);font-size:12px;letter-spacing:.24em;font-weight:700;display:block;margin-block-end:var(--sp-2);font-family:var(--font-body)}
+.eyebrow{color:var(--c-accent);font-size:12px;letter-spacing:.24em;font-weight:700;display:inline-flex;align-items:center;gap:10px;margin-block-end:var(--sp-2);font-family:var(--font-body)}
+.eyebrow::before{content:"";width:26px;height:1px;background:currentColor;opacity:.7}
 .lead{font-size:clamp(15px,2.3vw,18px);color:var(--c-ink-soft);max-width:var(--w-text)}
 .hdr{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--c-bg) 92%,transparent);backdrop-filter:blur(8px);border-block-end:1px solid var(--c-line)}
 .hdr .in{display:flex;align-items:center;justify-content:space-between;min-height:56px}
@@ -42,9 +43,10 @@ section{padding-block:var(--sp-8)}@media(min-width:768px){section{padding-block:
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:13px 30px;border-radius:var(--radius);font-weight:700;font-size:15px;text-decoration:none;border:1px solid transparent;cursor:pointer;font-family:var(--font-body)}
 .btn-primary{background:var(--c-accent);color:var(--c-accent-ink)}.btn-ghost{border-color:#ffffff30;color:#fff}
 .hero{background:radial-gradient(130% 90% at 78% 8%,#2a2519,#0f0e0b);position:relative;overflow:hidden}
-.hero::after{content:"";position:absolute;inset:0;opacity:.5;background:repeating-linear-gradient(122deg,transparent 0 34px,rgba(201,162,74,.045) 34px 35px)}
+.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(80% 60% at 78% 4%,rgba(201,162,74,.18),transparent 62%)}
 .hero .container{position:relative;z-index:1;padding-block:var(--sp-12) var(--sp-8)}
-.hero h1{font-size:clamp(28px,6vw,46px);line-height:1.55;font-weight:600}.hero h1 .hl{color:var(--c-accent)}
+.hero h1{font-size:clamp(28px,6.2vw,48px);line-height:1.4;font-weight:600}
+.hero h1 .hl{color:var(--c-accent);background:linear-gradient(transparent 64%,rgba(201,162,74,.24) 64%);padding-inline:.05em}
 .hero .sub{margin-block-start:var(--sp-3);color:var(--c-ink-soft);max-width:30em}
 .hero .btns{display:flex;gap:12px;flex-wrap:wrap;margin-block-start:var(--sp-4)}
 .hero .note{margin-block-start:var(--sp-3);font-size:13px;color:#8f897b}
@@ -103,7 +105,7 @@ section{padding-block:var(--sp-8)}@media(min-width:768px){section{padding-block:
     <span class="eyebrow">こんな会社に</span>
     <h2><span class="ph">「AIが良いのは分かった。</span><span class="ph">で、うちは何から？」</span></h2>
     <p class="lead">AI受付や業務システムで一度でも「これは効く」を体感した会社が、次に困るのが「では自社のどの業務を、どの順で、誰がやるか」です。BURNING ADVISORは、その"次の一手"を毎月ひとつ、実装まで持っていきます。</p>
-    <div class="quote reveal">話すだけのコンサルは、御用聞きになって工数が溶けます。<br>だから私たちは「毎月ひとつ実装する」ことを、先に約束します。</div>
+    <div class="quote reveal"><p style="margin:0 0 .5em">話すだけのコンサルは、御用聞きになって工数が溶けがちです。</p><p style="margin:0">だから私たちは「毎月ひとつ実装する」ことを、先に決めています。</p></div>
   </div>
 </section>
 
@@ -142,7 +144,7 @@ section{padding-block:var(--sp-8)}@media(min-width:768px){section{padding-block:
       <div class="plan reveal"><div class="tag">アドバンス</div><div class="v">月 300,000円<small> ／ 隔週MTG</small></div><p>実装が重めの会社向け。隔週MTG＋優先実装＋複数部門の並行支援</p></div>
     </div>
     <div class="honest">
-      <b>正直にお伝えします。</b> 私たちは飛び込み営業をしません。この顧問が本当に合うのは、<b>すでにAIの効果を一度体感した会社</b>です。1〜2社を丁寧に、が今の方針です。<b>実装ゼロの月は作りません</b>——それを契約で約束します。逆に「毎月言うだけ」を望まれる場合は、私たちより安い選択肢があります。
+      <b>正直にお伝えします。</b> 私たちは飛び込み営業をしません。この顧問が本当に合うのは、<b>すでにAIの効果を一度体感した会社</b>です。1〜2社を丁寧に、が今の方針です。<b>当社起因で実装ゼロの月は作りません</b>——進め方は御社と相談のうえ、毎月ひとつ前進させることを契約に明記します。逆に「毎月言うだけ」を望まれる場合は、私たちより安い選択肢があります。
     </div>
   </div>
 </section>
@@ -162,6 +164,7 @@ section{padding-block:var(--sp-8)}@media(min-width:768px){section{padding-block:
 <footer class="ft"><div class="container">
   <p>BURNING ADVISOR ／ AI導入顧問（月次実装・アドバイザリー）｜NEXT GROWTH ／ BURNING BROS.</p>
   <p style="margin-block-start:8px">効果や成果を保証するものではありません。導入するAIの内容・費用は個別にご説明します。</p>
+  <p style="margin-block-start:8px;color:var(--c-ink-soft);font-size:12px">運営：山口県岩国市の NEXT GROWTH ／ BURNING BROS.。自らも事業（軽貨物運送）を営みながらAIを実務に入れてきた当事者が、社長のとなりで進めます。</p>
 </div></footer>
 
 <div class="bar">
