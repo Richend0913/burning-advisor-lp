@@ -139,7 +139,6 @@ section{padding-block:56px}@media(min-width:768px){section{padding-block:88px}}
 @media(min-width:768px){.price{grid-template-columns:1fr 1fr;gap:32px;max-width:1000px;margin-inline:auto;margin-block-start:var(--sp-6)}}
 .plan{position:relative;padding:34px 24px 28px;text-align:center}
 @media(min-width:768px){.plan{padding:44px 40px 36px}}
-.plan.std::before{content:"";position:absolute;top:-1px;left:50%;transform:translateX(-50%);width:104px;height:6px;border-radius:0 0 6px 6px;background:var(--c-teal)}
 .plan .tag{font-family:var(--font-display);font-weight:700;font-size:clamp(18px,2vw,21px);letter-spacing:.12em;color:var(--c-ink)}
 .plan .v{font-family:var(--font-body);font-weight:700;font-size:clamp(32px,4vw,42px);line-height:1.25;color:var(--c-teal);margin-block:8px 16px;letter-spacing:.01em}
 .plan .v small{display:block;font-size:14px;font-weight:500;color:var(--c-ink-soft);letter-spacing:.06em;margin-block-start:4px}
@@ -201,12 +200,12 @@ section{padding-block:56px}@media(min-width:768px){section{padding-block:88px}}
 .company dd a{color:var(--c-ink)}
 .company .fineprint{max-width:52em;margin-block-start:var(--sp-3)}
 /* footer */
-.ft{background:var(--c-ink);color:#b8c0cc;font-size:12.5px;padding-block:var(--sp-6)}
-.ft a{color:#9fd3cc}.ft p{max-width:52em}
-.ft p:first-child{color:#fff;font-family:var(--font-display);font-size:14.5px;letter-spacing:.06em}
-.ft .soft{color:#9aa3b2}
-.ft .links{display:flex;gap:6px 22px;flex-wrap:wrap;margin-block-start:var(--sp-3);padding-block-start:var(--sp-2);border-top:1px solid rgba(255,255,255,.14);font-size:13px}
-.ft .links a{text-decoration:none;color:#fff}.ft .links a:hover{color:#9fd3cc}
+.ft{background:var(--c-bg);color:var(--c-ink);font-size:12.5px;padding-block:var(--sp-6);border-top:1px solid var(--c-line)}
+.ft a{color:var(--c-ink)}.ft a:hover{color:var(--c-teal)}.ft p{max-width:52em}
+.ft p:first-child{color:var(--c-ink);font-family:var(--font-display);font-size:14.5px;letter-spacing:.06em}
+.ft .soft{color:var(--c-ink-soft)}
+.ft .links{display:flex;gap:6px 22px;flex-wrap:wrap;margin-block-start:var(--sp-3);padding-block-start:var(--sp-2);border-top:1px solid var(--c-line);font-size:13px}
+.ft .links a{text-decoration:none;color:var(--c-ink)}.ft .links a:hover{color:var(--c-teal)}
 /* mobile fixed CTA bar (comp) */
 .bar{position:fixed;inset-inline:0;bottom:0;z-index:60;display:flex;gap:10px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:var(--c-ink);border-radius:16px 16px 0 0;box-shadow:0 -6px 20px rgba(16,26,44,.25)}
 .bar a{flex:1;min-height:52px;display:flex;align-items:center;justify-content:center;gap:8px;border-radius:10px;font-weight:700;font-size:14px;letter-spacing:.04em;text-decoration:none;line-height:1.3}
