@@ -291,7 +291,7 @@ section{padding-block:var(--sp-8)}@media(min-width:768px){section{padding-block:
     <span class="eyebrow center-head">お問い合わせ</span>
     <h2><span class="ph">「うちの、あの作業」から</span><span class="ph">話しましょう。</span></h2>
     <p class="lead" style="margin-inline:auto">御社で一番"面倒だけど毎月ある作業"を教えてください。それがAIで軽くできそうか、正直にお答えします。</p>
-    <!-- フォーム送信は formsubmit.co 経由で mimoria.inc@gmail.com へ届きます。
+    <!-- フォーム送信は formsubmit.co 経由で info@mimoria.jp へ届きます。
          初回送信時に formsubmit から有効化（activation）メールがその受信箱に届くので、運営側で一度だけリンクをクリックして有効化してください。 -->
     <form class="inq" id="inquiry-form" novalidate>
       <div class="fld">
@@ -331,7 +331,7 @@ section{padding-block:var(--sp-8)}@media(min-width:768px){section{padding-block:
       </div>
       <button type="submit" class="btn btn-primary submit" id="f-submit">この内容で相談する</button>
       <p class="msg" id="f-msg" role="status" aria-live="polite"></p>
-      <p class="fineprint">フォームが送信できない場合は、メール <a href="mailto:mimoria.inc@gmail.com?subject=BURNING%20ADVISOR%20%E7%9B%B8%E8%AB%87">mimoria.inc@gmail.com</a> へ直接ご連絡いただくか、<a href="https://lin.ee/8rR88pb" target="_blank" rel="noopener">LINEでのご相談</a>も可能です。</p>
+      <p class="fineprint">フォームが送信できない場合は、メール <a href="mailto:info@mimoria.jp?subject=BURNING%20ADVISOR%20%E7%9B%B8%E8%AB%87">info@mimoria.jp</a> へ直接ご連絡いただくか、<a href="https://lin.ee/8rR88pb" target="_blank" rel="noopener">LINEでのご相談</a>も可能です。</p>
     </form>
   </div>
 </section>
@@ -344,7 +344,7 @@ section{padding-block:var(--sp-8)}@media(min-width:768px){section{padding-block:
       <div class="row"><dt>事業者名</dt><dd>株式会社MIMORIA</dd></div>
       <div class="row"><dt>所在地</dt><dd>神奈川県横浜市</dd></div>
       <div class="row"><dt>電話</dt><dd><a href="tel:08089560913">080-8956-0913</a></dd></div>
-      <div class="row"><dt>メール</dt><dd><a href="mailto:mimoria.inc@gmail.com">mimoria.inc@gmail.com</a></dd></div>
+      <div class="row"><dt>メール</dt><dd><a href="mailto:info@mimoria.jp">info@mimoria.jp</a></dd></div>
       <div class="row"><dt>事業内容</dt><dd>AI導入顧問サービス「BURNING ADVISOR」の運営（月次ミーティング・業務AI化の実装・社長向け月報・チャット相談）</dd></div>
     </dl>
     <p class="fineprint">本サービスは顧問・アドバイザリーであり、効果や成果を保証するものではありません。導入するAIの内容・費用は個別にご説明します。</p>
@@ -355,7 +355,7 @@ section{padding-block:var(--sp-8)}@media(min-width:768px){section{padding-block:
   <p>BURNING ADVISOR ／ AI導入顧問（月次実装・アドバイザリー）｜株式会社MIMORIA</p>
   <p style="margin-block-start:8px">効果や成果を保証するものではありません。導入するAIの内容・費用は個別にご説明します。</p>
   <p class="soft" style="margin-block-start:8px;font-size:12px">運営：神奈川県横浜市の株式会社MIMORIA。中小企業の現場でAIを実務に入れてきた当事者が、社長のとなりで進めます。</p>
-  <p class="soft" style="margin-block-start:8px;font-size:13px">お問い合わせ：電話 <a href="tel:08089560913">080-8956-0913</a>／メール <a href="mailto:mimoria.inc@gmail.com?subject=BURNING%20ADVISOR%20%E7%9B%B8%E8%AB%87">mimoria.inc@gmail.com</a></p>
+  <p class="soft" style="margin-block-start:8px;font-size:13px">お問い合わせ：電話 <a href="tel:08089560913">080-8956-0913</a>／メール <a href="mailto:info@mimoria.jp?subject=BURNING%20ADVISOR%20%E7%9B%B8%E8%AB%87">info@mimoria.jp</a></p>
   <nav class="links">
     <a href="#contact">お問い合わせフォーム</a>
     <a href="#faq">よくある質問</a>
@@ -399,7 +399,7 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
       '相談内容':document.getElementById('f-message').value.trim()
     };
     btn.disabled=true;btn.textContent='送信中…';
-    fetch('https://formsubmit.co/ajax/mimoria.inc@gmail.com',{
+    fetch('https://formsubmit.co/ajax/info@mimoria.jp',{
       method:'POST',
       headers:{'Content-Type':'application/json','Accept':'application/json'},
       body:JSON.stringify(data)
@@ -411,7 +411,7 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
       show('送信しました。内容を確認のうえ、担当よりご連絡します。',true);
       form.reset();
     }).catch(function(){
-      show('送信に失敗しました。お手数ですが、メール mimoria.inc@gmail.com へ直接ご連絡ください。',false);
+      show('送信に失敗しました。お手数ですが、メール info@mimoria.jp へ直接ご連絡ください。',false);
     }).finally(function(){
       btn.disabled=false;btn.textContent='この内容で相談する';
     });
