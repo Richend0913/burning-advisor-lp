@@ -83,17 +83,13 @@ section{padding-block:var(--sp-8)}@media(min-width:768px){section{padding-block:
 .hero .note{margin-block-start:var(--sp-3);font-size:13px;color:var(--c-ink-soft);display:flex;gap:10px;align-items:baseline}
 .hero .note::before{content:"";flex:0 0 auto;width:10px;height:5px;border-left:1.5px solid var(--c-gold-ink);border-bottom:1.5px solid var(--c-gold-ink);transform:rotate(-45deg) translateY(-3px)}
 @media(max-width:480px){.hero .btns .btn{flex:1 1 100%}}
-/* HERO VISUAL — navy + gold graphic panel standing in for the meeting photo */
+/* HERO VISUAL — meeting photo in a navy + gold frame */
 .hero-visual{position:relative;aspect-ratio:1.42;min-height:240px;border-radius:2px;overflow:hidden;
-  background:
-    radial-gradient(120% 90% at 85% 10%,rgba(223,201,154,.18),transparent 55%),
-    radial-gradient(90% 80% at 10% 100%,rgba(40,44,120,.55),transparent 60%),
-    repeating-linear-gradient(135deg,rgba(255,255,255,.018) 0 2px,transparent 2px 7px),
-    linear-gradient(160deg,#14165a 0%,var(--c-navy) 55%,#05062a 100%);
+  background:linear-gradient(160deg,#14165a 0%,var(--c-navy) 55%,#05062a 100%);
   box-shadow:0 30px 60px -30px rgba(10,11,59,.55)}
-.hero-visual::before{content:"";position:absolute;inset:16px;border:1px solid rgba(207,174,104,.55);pointer-events:none}
-.hero-visual::after{content:"";position:absolute;inset:22px;border:1px solid rgba(207,174,104,.18);pointer-events:none}
-.hero-visual svg{position:absolute;inset:0;width:100%;height:100%}
+.hero-visual::before{content:"";position:absolute;inset:16px;border:1px solid rgba(207,174,104,.55);pointer-events:none;z-index:2}
+.hero-visual::after{content:"";position:absolute;inset:22px;border:1px solid rgba(207,174,104,.18);pointer-events:none;z-index:2}
+.hero-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%}
 @media(min-width:960px){.hero-visual{aspect-ratio:auto;height:100%;min-height:440px}}
 /* who */
 .quote{border-left:2px solid var(--c-gold);padding:4px 0 4px var(--sp-3);margin-block-start:var(--sp-4);font-family:var(--font-display);font-size:clamp(17px,3vw,22px);line-height:1.7;color:var(--c-head)}
@@ -214,34 +210,8 @@ section{padding-block:var(--sp-8)}@media(min-width:768px){section{padding-block:
     </div>
     <p class="note">6ヶ月契約〜 ／ 実装ゼロの月は作りません ／ すでにAIの効果を見た会社ほど、合います</p>
     </div>
-    <!-- HERO VISUAL: replace with meeting photo (e.g. <img src="hero.jpg" alt="" width="800" height="560">) inside .hero-visual; keep the panel size. Until then this is a pure-CSS/SVG navy+gold graphic (monthly-cycle motif). -->
-    <div class="hero-visual" aria-hidden="true">
-      <svg viewBox="0 0 600 440" preserveAspectRatio="xMidYMid slice" fill="none">
-        <defs>
-          <linearGradient id="hvg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e8d3a2"/><stop offset=".5" stop-color="#cfae68"/><stop offset="1" stop-color="#a8864a"/></linearGradient>
-          <radialGradient id="hvr" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#cfae68" stop-opacity=".16"/><stop offset="1" stop-color="#cfae68" stop-opacity="0"/></radialGradient>
-        </defs>
-        <circle cx="300" cy="220" r="190" fill="url(#hvr)"/>
-        <circle cx="300" cy="220" r="150" stroke="#cfae68" stroke-opacity=".22"/>
-        <circle cx="300" cy="220" r="118" stroke="url(#hvg)" stroke-width="1.2"/>
-        <circle cx="300" cy="220" r="84" stroke="#cfae68" stroke-opacity=".3" stroke-dasharray="2 6"/>
-        <path d="M300 74v-30M300 396v-30M154 220h-30M476 220h-30" stroke="#cfae68" stroke-opacity=".35"/>
-        <path d="M383.4 136.6l6 1.5-1.5-6M216.6 303.4l-6-1.5 1.5 6M383.4 303.4l-1.5 6 6-1.5M216.6 136.6l1.5-6-6 1.5" stroke="#cfae68" stroke-width="1.2"/>
-        <g fill="#0a0b3b" stroke="url(#hvg)" stroke-width="1.4">
-          <circle cx="300" cy="102" r="26"/><circle cx="418" cy="220" r="26"/><circle cx="300" cy="338" r="26"/><circle cx="182" cy="220" r="26"/>
-        </g>
-        <g stroke="#dfc99a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M290 95h20M290 102h20M290 109h12"/>
-          <path d="M408 228l7-7 5 5 9-10M424 216h5v5"/>
-          <path d="M291 345v-9l9-6 9 6v9zM297 345v-6h6v6"/>
-          <path d="M175 212h14v10h-8l-6 5z"/>
-        </g>
-        <g transform="translate(300 220)" stroke="url(#hvg)" stroke-width="1.4">
-          <path d="M0-30L12 0 0 30-12 0z" fill="#0a0b3b"/>
-          <path d="M0-30V30M-12 0H12" stroke-opacity=".5"/>
-        </g>
-        <path d="M60 400h120M420 40h120" stroke="#cfae68" stroke-opacity=".35"/>
-      </svg>
+    <div class="hero-visual">
+      <img src="photo-meeting.webp" alt="倉庫を背景に、タブレットの資料を見せながら中小企業の社長に説明するAI導入顧問" width="1920" height="1280">
     </div>
   </div>
 </section>
