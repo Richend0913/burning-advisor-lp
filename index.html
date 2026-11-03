@@ -331,8 +331,9 @@ section{padding-block:56px}@media(min-width:768px){section{padding-block:88px}}
     <span class="eyebrow">お問い合わせ</span>
     <h2><span class="ph">「うちの、あの作業」から</span><span class="ph">話しましょう。</span></h2>
     <p class="lead" style="margin-inline:auto">御社で一番"面倒だけど毎月ある作業"を教えてください。それがAIで軽くできそうか、正直にお答えします。</p>
-    <!-- フォーム送信は formsubmit.co 経由で info@mimoria.jp へ届きます。
-         初回送信時に formsubmit から有効化（activation）メールがその受信箱に届くので、運営側で一度だけリンクをクリックして有効化してください。
+    <!-- フォーム送信はまず mimoria-forms Worker（https://mimoria-forms.burningbros.workers.dev/v1/form、KV保存）へ送ります。
+         Worker への送信が失敗した場合（通信エラー・2xx以外）のみ、フォールバックとして formsubmit.co 経由で info@mimoria.jp へ送ります。
+         フォールバック経路の formsubmit は、初回送信時に有効化（activation）メールがその受信箱に届くので、運営側で一度だけリンクをクリックして有効化してください。
          送信者への自動返信メール（_autoresponse）も、この一度きりの有効化が済んでから届くようになります。 -->
     <form class="inq" id="inquiry-form" novalidate>
       <div class="fld">
@@ -450,13 +451,21 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
       '相談内容':document.getElementById('f-message').value.trim()
     };
     btn.disabled=true;btn.textContent='送信中…';
-    fetch('https://formsubmit.co/ajax/info@mimoria.jp',{
+    fetch('https://mimoria-forms.burningbros.workers.dev/v1/form',{
       method:'POST',
       headers:{'Content-Type':'application/json','Accept':'application/json'},
-      body:JSON.stringify(data)
+      body:JSON.stringify({lp:'advisor',fields:data})
     }).then(function(res){
       if(!res.ok)throw new Error('HTTP '+res.status);
-      return res.json();
+    }).catch(function(){
+      return fetch('https://formsubmit.co/ajax/info@mimoria.jp',{
+        method:'POST',
+        headers:{'Content-Type':'application/json','Accept':'application/json'},
+        body:JSON.stringify(data)
+      }).then(function(res){
+        if(!res.ok)throw new Error('HTTP '+res.status);
+        return res.json();
+      });
     }).then(function(){
       if(window.gtag)gtag('event','inquiry_submit',{page_area:'burning-advisor'});
       show('送信しました。内容を確認のうえ、担当よりご連絡します。',true);
